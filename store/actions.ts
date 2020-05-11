@@ -16,5 +16,5 @@ export const changePage = ({ state }, mutations) => {
 };
 
 /**
- * Export async actions and actions
+ * Export AsyncAction and Action
  */

@@ -1,15 +1,15 @@
 import App from "next/app";
 import Head from "next/head";
 import React from "react";
-// import AppLayout from "components/AppLayout";
-// import { config, Provider } from "css";
-// import { createCss, TCss } from "@stitches/css";
+import AppLayout from "components/AppLayout";
+import { config, Provider } from "styles/css";
+import { createCss, TCss } from "@stitches/css";
 import { createOvermind, createOvermindSSR, rehydrate } from "overmind";
 import * as overmindReact from "overmind-react";
 import * as overmindStore from "store";
 
 export default class MyApp extends App<{
-  // serverCss: TCss<typeof config>;
+  serverCss: TCss<typeof config>;
 }> {
   overmind = createOvermind(overmindStore.config);
   // CLIENT: On initial route
@@ -41,31 +41,34 @@ export default class MyApp extends App<{
   // SERVER: On initial route
 
   render(): JSX.Element {
-    const { Component, pageProps /*, serverCss*/ } = this.props;
+    const { Component, pageProps, serverCss } = this.props;
 
     return (
       <overmindReact.Provider value={this.overmind}>
-        {/* <Provider css={serverCss || createCss(config)}> */}
-        <Head>
-          <title>The wbesite title</title>
+        <Provider css={serverCss || createCss(config)}>
+          <Head>
+            <title>The website title</title>
 
-          <link
-            href="https://unpkg.com/tailwindcss/dist/base.min.css"
-            rel="stylesheet"
-            key="tailwindcss"
-          />
-          <link rel="icon" href="favicon.ico" />
+            <link
+              href="https://unpkg.com/tailwindcss/dist/base.min.css"
+              rel="stylesheet"
+              key="tailwindcss"
+            />
+            <link rel="icon" href="favicon.ico" />
+            <meta name="creator" content="Etienne BLANC" />
+            <meta charSet="utf-8" />
+            <meta lang="en" />
+            <meta
+              name="description"
+              content="This is a template for NextJS + Stitches + Overmind + Typescript"
+            />
+            <meta name="theme-color" content="FFFFFF" />
+          </Head>
 
-          <meta name="creator" content="Etienne BLANC" />
-          <meta charSet="utf-8" />
-          <meta lang="fr" />
-          <meta name="description" content="The website description" />
-        </Head>
-
-        {/* <AppLayout> */}
-        <Component {...pageProps} />
-        {/* </AppLayout> */}
-        {/* </Provider> */}
+          <AppLayout>
+            <Component {...pageProps} />
+          </AppLayout>
+        </Provider>
       </overmindReact.Provider>
     );
   }

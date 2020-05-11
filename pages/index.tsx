@@ -1,11 +1,11 @@
 import React from "react";
-import { styled } from "css";
+import { styled } from "styles/css";
 import { GetServerSideProps } from "next";
 import fetch from "node-fetch";
 
 // Types
 interface PageIndexProps {
-  stringArray: Array<string>;
+  dataFetched: Array<string>;
 }
 
 // Styles
@@ -17,63 +17,51 @@ const SectionDiv = styled.div((css) =>
 
 const SectionTitle = styled.h2((css) =>
   css.compose(
+    css.p(3),
+    css.m(3),
+    css.bg("green-500"),
     css.text("left"),
-    css.text("xl"),
+    css.text("6xl"),
     css.font("bold"),
-    css.self("center")
+    css.self("center"),
+    css.border("dashed"),
+    css.border(4),
+    css.border("gray-900"),
+    css.rounded("lg")
   )
 );
 
-const ActionContainer = styled.div((css) =>
-  css.compose(
-    css.inlineFlex(),
-    css.w("full"),
-    css.justify("center"),
-    css.rounded("md")
-  )
-);
-
-const ActionButton = styled.button((css) =>
-  css.compose(
-    css.bg("black"),
-    css.text("gray-300"),
-    css.m("px"),
-    css.p(1),
-    css.rounded("md"),
-    css.w("1/3"),
-    css.maxW("xs"),
-    css.border(2),
-    css.border("orange-600", ":hover"),
-    css.bg("orange-600", ":active")
-  )
+const SectionText = styled.p((css) =>
+  css.compose(css.text("green-600"), css.text("lg"))
 );
 
 // Main
-const PageIndex: React.FC<PageIndexProps> = ({ stringArray }) => {
+const PageIndex: React.FC<PageIndexProps> = ({ dataFetched }) => {
   // -- RENDER --
   return (
     <PageDiv>
-      <SectionDiv>
-        <SectionTitle>The section titile</SectionTitle>
+      <SectionDiv style={{ flexDirection: "column" }} /** Bug with Stitches */>
+        <SectionTitle>Hello World!</SectionTitle>
+        <SectionText>Thank's for using this template, enjoy ! :-)</SectionText>
       </SectionDiv>
     </PageDiv>
   );
 };
 
 export const getServerSideProps: GetServerSideProps<PageIndexProps> = async () => {
-  let stringArray = [];
+  let dataFetched = [];
 
-  // Fetch all words
+  // Fetch some api
   try {
-    const res = await fetch("http://myapiul/getStringArray");
-    stringArray = await res.json();
+    const res = await fetch("http://myapiul/getdataFetched");
+    dataFetched = await res.json();
   } catch (error) {
     console.error("fetch error in pages/index.tsx:", error);
   }
 
   // return data
   return {
-    props: { stringArray }, // will be passed to the page component as props
+    props: { dataFetched }, // will be passed to the page component as props
   };
 };
 

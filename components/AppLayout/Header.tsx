@@ -1,9 +1,9 @@
 import React from "react";
-import { styled } from "css";
+import { styled } from "styles/css";
 
 const HeaderTitle = styled.h1((css) =>
   css.compose(
-    css.text("orange-600"),
+    css.text("green-600"),
     css.font("bold"),
     css.text("2xl"),
     css.m(3)

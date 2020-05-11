@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import { styled } from "css";
+import { styled } from "styles/css";
 import { initGA } from "utils/analystics";
 
 // Types
@@ -35,7 +35,7 @@ const HeaderContainer = styled.header((css) =>
     css.w("full"),
     css.borderB(2),
     css.border("solid"),
-    css.border("orange-600")
+    css.border("green-600")
   )
 );
 
@@ -62,7 +62,7 @@ const FooterContainer = styled.footer((css) =>
     css.w("full"),
     css.borderT(2),
     css.border("solid"),
-    css.border("orange-600")
+    css.border("green-600")
   )
 );
 
