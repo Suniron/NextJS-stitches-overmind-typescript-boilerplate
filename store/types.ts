@@ -1,5 +1,3 @@
-import { Word } from "global";
-
 export type Page = "Index";
 
 export interface State {
