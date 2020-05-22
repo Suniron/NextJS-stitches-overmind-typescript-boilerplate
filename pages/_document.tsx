@@ -1,8 +1,8 @@
 import React from "react";
 import { createCss } from "@stitches/css";
-import Document from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
-import { config } from "css";
+import { config } from "../styles";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -21,18 +21,23 @@ export default class MyDocument extends Document {
         styles: (
           <>
             {initialProps.styles}
-            {css.getStyles().map((css, index) => {
-              //console.log("css ->", index, css); // nb: Uncomment to debug
-              return (
-                <style key={index}>
-                  {css.replace(/\/\*[\s\S]*?\*\/|\/\/.*/g, "")}
-                </style>
-              );
-            })}
+            <style>{css.getStyles()}</style>
           </>
         ),
       };
     } finally {
     }
+  }
+
+  render() {
+    return (
+      <Html lang="en">
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
 }
