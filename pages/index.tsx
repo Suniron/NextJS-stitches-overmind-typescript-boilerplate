@@ -1,5 +1,5 @@
 import React from "react";
-import { styled } from "styles/css";
+import { styled } from "css";
 import { GetServerSideProps } from "next";
 import fetch from "node-fetch";
 

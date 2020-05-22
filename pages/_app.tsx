@@ -2,7 +2,7 @@ import App from "next/app";
 import Head from "next/head";
 import React from "react";
 import AppLayout from "components/AppLayout";
-import { config, Provider } from "styles/css";
+import { config, Provider } from "css";
 import { createCss, TCss } from "@stitches/css";
 import { createOvermind, createOvermindSSR, rehydrate } from "overmind";
 import * as overmindReact from "overmind-react";

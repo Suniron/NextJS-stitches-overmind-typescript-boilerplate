@@ -2,7 +2,7 @@ import React from "react";
 import { createCss } from "@stitches/css";
 import Document from "next/document";
 
-import { config } from "styles/css";
+import { config } from "css";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
