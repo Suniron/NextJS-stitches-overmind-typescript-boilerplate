@@ -2,7 +2,7 @@ import App from "next/app";
 import Head from "next/head";
 import React from "react";
 import AppLayout from "components/AppLayout";
-import { config, Provider } from "css";
+import { config, Provider } from "../styles";
 import { createCss, TCss } from "@stitches/css";
 import { createOvermind, createOvermindSSR, rehydrate } from "overmind";
 import * as overmindReact from "overmind-react";
@@ -52,12 +52,10 @@ export default class MyApp extends App<{
             <link
               href="https://unpkg.com/tailwindcss/dist/base.min.css"
               rel="stylesheet"
-              key="tailwindcss"
             />
             <link rel="icon" href="favicon.ico" />
             <meta name="creator" content="Etienne BLANC" />
             <meta charSet="utf-8" />
-            <meta lang="en" />
             <meta
               name="description"
               content="This is a template for NextJS + Stitches + Overmind + Typescript"

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import { styled } from "css";
+import { styled } from "styles";
 import { initGA } from "utils/analystics";
 
 // Types

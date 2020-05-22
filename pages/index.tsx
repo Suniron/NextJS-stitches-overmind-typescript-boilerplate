@@ -1,5 +1,5 @@
 import React from "react";
-import { styled } from "css";
+import { styled } from "../styles";
 import { GetServerSideProps } from "next";
 import fetch from "node-fetch";
 
@@ -56,7 +56,7 @@ export const getServerSideProps: GetServerSideProps<PageIndexProps> = async () =
     const res = await fetch("http://myapiul/getdataFetched");
     dataFetched = await res.json();
   } catch (error) {
-    console.error("fetch error in pages/index.tsx:", error);
+    //console.error("fetch error in pages/index.tsx:", error);
   }
 
   // return data

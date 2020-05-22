@@ -1,5 +1,5 @@
 import React from "react";
-import { styled } from "css";
+import { styled } from "styles";
 
 const HeaderTitle = styled.h1((css) =>
   css.compose(

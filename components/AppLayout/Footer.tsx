@@ -1,5 +1,5 @@
 import React from "react";
-import { styled } from "css";
+import { styled } from "styles";
 
 const FooterCopyright = styled.p((css) =>
   css.compose(css.text("gray-500"), css.m(3))
