@@ -8,7 +8,7 @@ import * as utils from "@stitches/tailwind/utils";
 // Treeshake by including only specific theme
 // import { colors, spacing } from "@stitches/tailwind/theme"
 import * as theme from "@stitches/tailwind/theme";
-import { createTokens, createCss } from "@stitches/css";
+import { createTokens, createCss, hotReloadingCache } from "@stitches/css";
 
 const tokens = createTokens({
   colors: {
@@ -25,6 +25,8 @@ const config = createConfig({
   theme,
   utils,
 });
+
+hotReloadingCache.clear(); // to fix screens problem
 
 const css = createCss(config);
 
