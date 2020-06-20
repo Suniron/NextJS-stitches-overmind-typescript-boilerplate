@@ -16,16 +16,14 @@ const AppContainer = styled.div((css) =>
     css.minH("screen"),
     css.flex(),
     css.text("center"),
-    css.bg("gray-200"),
-    css.mt(16),
-    css.mb(12)
+    css.bg("gray-200")
   )
 );
 
 const HeaderContainer = styled.header((css) =>
   css.compose(
-    css.h(16),
     css.flex(),
+    css.h(12),
     css.items("center"),
     css.bg("black"),
     css.justify("center"),
@@ -41,6 +39,8 @@ const HeaderContainer = styled.header((css) =>
 
 const ContentContainer = styled.div((css) =>
   css.compose(
+    css.mt(16),
+    css.mb(12),
     css.grow("default"),
     css.flex(),
     css.p(2),
@@ -51,7 +51,6 @@ const ContentContainer = styled.div((css) =>
 
 const FooterContainer = styled.footer((css) =>
   css.compose(
-    css.h(12),
     css.items("center"),
     css.bg("black"),
     css.text("white"),
