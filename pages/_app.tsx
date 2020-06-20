@@ -5,6 +5,7 @@ import AppLayout from "components/AppLayout";
 import { config, Provider } from "../styles";
 import { createCss, TCss } from "@stitches/css";
 import { createOvermind, createOvermindSSR, rehydrate } from "overmind";
+import "../styles/custom.scss";
 import * as overmindReact from "overmind-react";
 import * as overmindStore from "store";
 
