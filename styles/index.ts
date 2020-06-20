@@ -8,7 +8,7 @@ import * as utils from "@stitches/tailwind/utils";
 // Treeshake by including only specific theme
 // import { colors, spacing } from "@stitches/tailwind/theme"
 import * as theme from "@stitches/tailwind/theme";
-import { createTokens, createCss, hotReloadingCache } from "@stitches/css";
+import { createTokens, hotReloadingCache } from "@stitches/css";
 
 const tokens = createTokens({
   colors: {
@@ -22,14 +22,18 @@ const config = createConfig({
     tablet: (cssRule): string => `@media (min-width: 768px) { ${cssRule} }`,
     laptop: (cssRule): string => `@media (min-width: 1024px) { ${cssRule} }`,
   },
-  theme,
+  theme: {
+    ...theme,
+    flex: {
+      ...theme.flex,
+      col: "column", // To fix flex-direction: column
+    },
+  },
   utils,
 });
 
 hotReloadingCache.clear(); // to fix screens problem
 
-const css = createCss(config);
-
 const { Provider, useCss, styled } = createStyled<typeof config>();
 
-export { css, config, Provider, useCss, styled };
+export { config, Provider, useCss, styled };
