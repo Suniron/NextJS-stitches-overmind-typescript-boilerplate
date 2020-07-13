@@ -1,27 +1,29 @@
 import React from "react";
-import { createCss } from "@stitches/css";
 import Document, { Html, Head, Main, NextScript } from "next/document";
-
-import { config } from "../styles";
+import { css } from "../styles";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
-    const css = createCss(config);
     const originalRenderPage = ctx.renderPage;
 
     try {
-      ctx.renderPage = () =>
-        originalRenderPage({
-          enhanceApp: (App) => (props) => <App {...props} serverCss={css} />,
-        });
+      let extractedStyles;
+      ctx.renderPage = () => {
+        const { styles, result } = css.getStyles(originalRenderPage);
+        extractedStyles = styles;
+        return result;
+      };
 
       const initialProps = await Document.getInitialProps(ctx);
+
       return {
         ...initialProps,
         styles: (
           <>
             {initialProps.styles}
-            <style>{css.getStyles()}</style>
+            {extractedStyles.map((content, index) => (
+              <style key={index}>{content}</style>
+            ))}
           </>
         ),
       };
