@@ -31,9 +31,7 @@ const SectionTitle = styled.h2((css) =>
   )
 );
 
-const SectionText = styled.p((css) =>
-  css.compose(css.text("green-600"), css.text("lg"))
-);
+const SectionText = styled.p({ text: "green-600" });
 
 // Main
 const PageIndex: React.FC<PageIndexProps> = ({ dataFetched }) => {
