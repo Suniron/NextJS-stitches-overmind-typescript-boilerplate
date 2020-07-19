@@ -12,9 +12,9 @@
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
   },
   "dependencies": {
-    "@stitches/css": "^5.2.4",
-    "@stitches/styled": "^5.2.4",
-    "@stitches/tailwind": "^5.2.4",
+    "@stitches/css": "^7.0.0",
+    "@stitches/styled": "^7.0.1",
+    "@stitches/tailwind": "^7.0.0",
     "eslint": "^7.4.0",
     "next": "^9.4.4",
     "overmind": "^24.1.1",
