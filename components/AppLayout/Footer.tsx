@@ -1,11 +1,9 @@
 import React from "react";
 import { styled } from "styles";
 
-const FooterCopyright = styled.p((css) => css.compose(css.text("gray-500")));
+const FooterCopyright = styled.p({ text: "gray-500" });
 
-const MaltLink = styled.a((css) =>
-  css.compose(css.text("green-600"), css.underline())
-);
+const MaltLink = styled.a({ text: "green-600" });
 
 const Footer: React.FC = () => {
   return (

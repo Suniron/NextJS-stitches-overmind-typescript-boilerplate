@@ -9,27 +9,20 @@ interface PageIndexProps {
 }
 
 // Styles
-const PageDiv = styled.div((css) => css.compose(css.w("full"), css.m(3)));
+const PageDiv = styled.div({ w: "full", m: 3 });
 
-const SectionDiv = styled.div((css) =>
-  css.compose(css.flex(), css.justify("center"))
-);
+const SectionDiv = styled.div({ flex: "auto", justify: "center" });
 
-const SectionTitle = styled.h2((css) =>
-  css.compose(
-    css.p(3),
-    css.m(3),
-    css.bg("green-500"),
-    css.text("left"),
-    css.text("6xl"),
-    css.font("bold"),
-    css.self("center"),
-    css.border("dashed"),
-    css.border(4),
-    css.border("gray-900"),
-    css.rounded("lg")
-  )
-);
+const SectionTitle = styled.h2({
+  p: 3,
+  m: 3,
+  bg: "green-500",
+  text: "left",
+  font: "bold",
+  self: "center",
+  border: "dashed",
+  rounded: "lg",
+});
 
 const SectionText = styled.p({ text: "green-600" });
 
